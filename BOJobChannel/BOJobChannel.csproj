@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Region.cs" />
+    <Compile Include="Type_Contrat.cs" />
     <Compile Include="Type_Poste.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
