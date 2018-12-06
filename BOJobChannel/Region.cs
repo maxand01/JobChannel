@@ -7,42 +7,37 @@ using System.Threading.Tasks;
 namespace BOJobChannel
 {
     /// <summary>
-    /// Classe métier Departement
+    /// Classe Région
     /// </summary>
-    public class Type_Poste
+    public class Region
     {
-
         #region "Propriétés et accesseurs"
-
         /// <summary>
-        /// ID Type Poste
+        /// ID Région
         /// </summary>
-        public int IDTypePoste { get; set; }
-
+        public int IDRegion { get; set; }
         /// <summary>
-        /// Nom Type poste
+        /// Nom Région
         /// </summary>
-        public string NomPoste { get; set; }
-
+        public string NomRegion { get; set; }
         #endregion
         #region "Constructeurs"
         /// <summary>
         /// Constructeur vide
         /// </summary>
-        public Type_Poste()
+        public Region()
         {
 
         }
-
         /// <summary>
-        /// Constructeur par de défaut
+        /// Constructeur par défaut
         /// </summary>
-        /// <param name="idPoste"></param>
-        /// <param name="nomPoste"></param>
-        public Type_Poste(int idPoste, string nomPoste)
+        /// <param name="idRegion"></param>
+        /// <param name="nomRegion"></param>
+        public Region(int idRegion, string nomRegion)
         {
-            this.IDTypePoste = idPoste;
-            this.NomPoste = nomPoste;
+            this.IDRegion = idRegion;
+            this.NomRegion = nomRegion;
         }
         #endregion
         #region "Methodes"
@@ -50,6 +45,7 @@ namespace BOJobChannel
         #region "Methodes héritées et substituées"
         #endregion
         #region "Methodes à implementer pour les interfaces"
-        #endregion        
+        #endregion
+
     }
 }

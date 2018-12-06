@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Region.cs" />
     <Compile Include="Type_Poste.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
