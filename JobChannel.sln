@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProjectDAL", "UnitT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{F2161838-C2EF-492C-BDB5-D97403D51B74}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServiceJobChannel", "WcfServiceJobChannel\WcfServiceJobChannel.csproj", "{6C1F1DA3-9E6E-429C-B4ED-1DE932919754}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,18 @@ Global
 		{F2161838-C2EF-492C-BDB5-D97403D51B74}.Release|x64.Build.0 = Release|Any CPU
 		{F2161838-C2EF-492C-BDB5-D97403D51B74}.Release|x86.ActiveCfg = Release|Any CPU
 		{F2161838-C2EF-492C-BDB5-D97403D51B74}.Release|x86.Build.0 = Release|Any CPU
+		{6C1F1DA3-9E6E-429C-B4ED-1DE932919754}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C1F1DA3-9E6E-429C-B4ED-1DE932919754}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C1F1DA3-9E6E-429C-B4ED-1DE932919754}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6C1F1DA3-9E6E-429C-B4ED-1DE932919754}.Debug|x64.Build.0 = Debug|Any CPU
+		{6C1F1DA3-9E6E-429C-B4ED-1DE932919754}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6C1F1DA3-9E6E-429C-B4ED-1DE932919754}.Debug|x86.Build.0 = Debug|Any CPU
+		{6C1F1DA3-9E6E-429C-B4ED-1DE932919754}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C1F1DA3-9E6E-429C-B4ED-1DE932919754}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C1F1DA3-9E6E-429C-B4ED-1DE932919754}.Release|x64.ActiveCfg = Release|Any CPU
+		{6C1F1DA3-9E6E-429C-B4ED-1DE932919754}.Release|x64.Build.0 = Release|Any CPU
+		{6C1F1DA3-9E6E-429C-B4ED-1DE932919754}.Release|x86.ActiveCfg = Release|Any CPU
+		{6C1F1DA3-9E6E-429C-B4ED-1DE932919754}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

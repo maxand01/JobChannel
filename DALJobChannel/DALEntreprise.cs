@@ -34,8 +34,22 @@ namespace DALJobChannel
                 Entreprise entreprise = new Entreprise();
                 entreprise.IDEntreprise = Convert.ToInt32(row["ID_ENTREPRISE"]);
                 entreprise.NomEntreprise = row["NOM_ENTREPRISE"].ToString();
-                entreprise.ContactEntreprise = row["CONTACT_ENTREPRISE"].ToString();
-                entreprise.TelephoneContact = Convert.ToInt32(row["TELEPHONE_CONTACT"]);
+                if (row.IsNull("CONTACT_ENTREPRISE"))
+                {
+                    entreprise.ContactEntreprise = "Non renseigné";
+                } 
+                else
+                {
+                    entreprise.ContactEntreprise = row["CONTACT_ENTREPRISE"].ToString();
+                }
+                if (row.IsNull("TELEPHONE_CONTACT"))
+                {
+                    entreprise.TelephoneContact = 0;
+                }
+                else
+                {
+                    entreprise.TelephoneContact = Convert.ToInt32(row["TELEPHONE_CONTACT"]);
+                }
                 Liste.Add(entreprise);
             }
             return Liste;

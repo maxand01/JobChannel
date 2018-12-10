@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DALJobChannel
 {
-    class DALTypeContrat
+    public class DALTypeContrat
     {
         public string Requete { get; set; }
         public Connection cn { get; set; }
