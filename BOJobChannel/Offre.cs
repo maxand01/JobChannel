@@ -32,6 +32,22 @@ namespace BOJobChannel
         /// Lien Web
         /// </summary>
         public string LienWeb { get; set; }
+        /// <summary>
+        /// Id region
+        /// </summary>
+        public int IDRegion { get; set; }
+        /// <summary>
+        /// Id Type Contrat
+        /// </summary>
+        public int IDTypeContrat { get; set; }
+        /// <summary>
+        /// Id Type Poste
+        /// </summary>
+        public int IDTypePoste { get; set; }
+        /// <summary>
+        /// Id Entreprise
+        /// </summary>
+        public int IDEntreprise { get; set; }
         #endregion
         #region "Constructeurs"
         /// <summary>

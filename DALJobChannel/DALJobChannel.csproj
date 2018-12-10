@@ -45,6 +45,7 @@
     <Compile Include="DALConnection.cs" />
     <Compile Include="DALEntreprise.cs" />
     <Compile Include="DALException.cs" />
+    <Compile Include="DALOffre.cs" />
     <Compile Include="DALRegion.cs" />
     <Compile Include="DALTypeContrat.cs" />
     <Compile Include="DALTypePoste.cs" />

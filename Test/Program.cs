@@ -22,6 +22,13 @@ namespace Test
             DALEntreprise et = new DALEntreprise();
             int cb = et.UpdateEntreprise(2,"Test");
             Console.WriteLine(cb);
+
+            DALOffre of = new DALOffre();
+            List<Offre> o = of.GetAllOffres();
+            foreach (Offre os in o )
+            {
+                Console.WriteLine(os.TitreOffre);
+            }
             Console.ReadKey();
 
         }		
