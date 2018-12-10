@@ -40,5 +40,29 @@ namespace DALJobChannel
             }
             return Liste;
         }
+
+        public int UpdateEntreprise(int numero, string nom)
+        {
+            SqlCommand objSelectCommand = new SqlCommand();
+            objSelectCommand.Connection = cn.cn;
+            objSelectCommand.CommandText = "dbo.UpdateEntreprise";
+            objSelectCommand.CommandType = CommandType.StoredProcedure;
+            objSelectCommand.Parameters.AddWithValue("@ID_ENTREPRISE", numero);
+            objSelectCommand.Parameters.AddWithValue("@CONTACT_ENTREPRISE", nom);
+            int nbLignes = objSelectCommand.ExecuteNonQuery();
+            DataTable objDataTable = new DataTable();
+            SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
+            objDataAdapter.Fill(objDataTable);
+            foreach (DataRow row in objDataTable.Rows)
+            {
+                Entreprise entreprise = new Entreprise();
+                entreprise.IDEntreprise = Convert.ToInt32(row["ID_ENTREPRISE"]);
+                entreprise.NomEntreprise = row["NOM_ENTREPRISE"].ToString();
+                entreprise.ContactEntreprise = row["CONTACT_ENTREPRISE"].ToString();
+                entreprise.TelephoneContact = Convert.ToInt32(row["TELEPHONE_CONTACT"]);
+                Liste.Add(entreprise);
+            }
+            return nbLignes;
+        }
     }
 }

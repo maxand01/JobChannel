@@ -18,6 +18,10 @@ namespace Test
             {
                 Console.WriteLine(f.IDTypePoste + f.NomPoste);
             }
+
+            DALEntreprise et = new DALEntreprise();
+            int cb = et.UpdateEntreprise(2,"Test");
+            Console.WriteLine(cb);
             Console.ReadKey();
 
         }		
