@@ -20,7 +20,7 @@ namespace DALJobChannel
             cn = new Connection();
             Liste = new List<TypeContrat>();
         }
-        public List<TypeContrat> GetAllTypePoste()
+        public List<TypeContrat> GetAllTypeContrats()
         {
             Requete = "Select * from TYPE_CONTRAT order by NOM_TYPE_CONTRAT";
             SqlCommand objSelectCommand = new SqlCommand(Requete);

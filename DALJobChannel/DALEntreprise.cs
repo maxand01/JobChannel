@@ -9,20 +9,21 @@ using System.Threading.Tasks;
 
 namespace DALJobChannel
 {
-    public class DALTypePoste
+    public class DALEntreprise
     {
         public string Requete { get; set; }
         public Connection cn { get; set; }
-        public List<TypePoste> Liste { get; set; }
+        public List<Entreprise> Liste { get; set; }
 
-        public DALTypePoste()
+        public DALEntreprise()
         {
             cn = new Connection();
-            Liste = new List<TypePoste>();
+            Liste = new List<Entreprise>();
         }
-        public List<TypePoste> GetAllTypePostes()
+
+        public List<Entreprise> GetAllEntreprises()
         {
-            Requete = "Select * from TYPE_POSTE order by NOM_TYPE_POSTE";
+            Requete = "Select * from REGION order by NOM_REGION";
             SqlCommand objSelectCommand = new SqlCommand(Requete);
             objSelectCommand.Connection = cn.cn;
             DataTable objDataTable = new DataTable();
@@ -30,12 +31,14 @@ namespace DALJobChannel
             objDataAdapter.Fill(objDataTable);
             foreach (DataRow row in objDataTable.Rows)
             {
-                TypePoste poste = new TypePoste();
-                poste.IDTypePoste = Convert.ToInt32(row["ID_TYPE_POSTE"]);
-                poste.NomPoste = row["NOM_TYPE_POSTE"].ToString();
-                Liste.Add(poste);
+                Entreprise entreprise = new Entreprise();
+                entreprise.IDEntreprise = Convert.ToInt32(row["ID_ENTREPRISE"]);
+                entreprise.NomEntreprise = row["NOM_ENTREPRISE"].ToString();
+                entreprise.ContactEntreprise = row["CONTACT_ENTREPRISE"].ToString();
+                entreprise.TelephoneContact = Convert.ToInt32(row["TELEPHONE_CONTACT"]);
+                Liste.Add(entreprise);
             }
             return Liste;
-        }        
+        }
     }
 }

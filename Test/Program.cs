@@ -13,7 +13,7 @@ namespace Test
         static void Main(string[] args)
         {
             DALTypePoste tp = new DALTypePoste();
-            List<TypePoste> g = tp.GetAllTypePoste();
+            List<TypePoste> g = tp.GetAllTypePostes();
             foreach(TypePoste f in g)
             {
                 Console.WriteLine(f.IDTypePoste + f.NomPoste);
