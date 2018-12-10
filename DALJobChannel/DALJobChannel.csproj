@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="DALConnection.cs" />
     <Compile Include="DALException.cs" />
+    <Compile Include="DALTypeContrat.cs" />
+    <Compile Include="DALTypePoste.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -56,6 +58,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BOJobChannel\BOJobChannel.csproj">
+      <Project>{6af2492e-a0ef-486a-bcd0-897b1a8b70f3}</Project>
+      <Name>BOJobChannel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

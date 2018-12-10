@@ -7,49 +7,50 @@ using System.Threading.Tasks;
 namespace BOJobChannel
 {
     /// <summary>
-    /// Classe métier Departement
+    /// Classe métier Type Contrat
     /// </summary>
-    public class Type_Poste
+    public class TypeContrat
     {
-
         #region "Propriétés et accesseurs"
+        /// <summary>
+        /// ID Type Contrat
+        /// </summary>
+        public int IDTypeContrat { get; set; }
 
         /// <summary>
-        /// ID Type Poste
+        /// Nom Type Contrat
         /// </summary>
-        public int IDTypePoste { get; set; }
-
-        /// <summary>
-        /// Nom Type poste
-        /// </summary>
-        public string NomPoste { get; set; }
+        public string NomTypeContrat { get; set; }
 
         #endregion
         #region "Constructeurs"
+
         /// <summary>
-        /// Constructeur vide
+        /// Constructeur a vide
         /// </summary>
-        public Type_Poste()
+        public TypeContrat()
         {
 
         }
 
         /// <summary>
-        /// Constructeur par de défaut
+        /// Constructeur par défaut
         /// </summary>
-        /// <param name="idPoste"></param>
-        /// <param name="nomPoste"></param>
-        public Type_Poste(int idPoste, string nomPoste)
+        /// <param name="idTypeContrat"></param>
+        /// <param name="nomTypeContrat"></param>
+        public TypeContrat(int idTypeContrat, string nomTypeContrat)
         {
-            this.IDTypePoste = idPoste;
-            this.NomPoste = nomPoste;
+            this.IDTypeContrat = idTypeContrat;
+            this.NomTypeContrat = nomTypeContrat;
         }
+
         #endregion
         #region "Methodes"
         #endregion
         #region "Methodes héritées et substituées"
         #endregion
         #region "Methodes à implementer pour les interfaces"
-        #endregion        
+        #endregion
+
     }
 }
