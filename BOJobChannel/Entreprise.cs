@@ -27,7 +27,7 @@ namespace BOJobChannel
         /// <summary>
         /// Telephone Contact
         /// </summary>
-        public int TelephoneContact { get; set; }
+        public int NumeroEntreprise { get; set; }
         #endregion
         #region "Constructeurs"
         /// <summary>
@@ -40,12 +40,12 @@ namespace BOJobChannel
         /// <summary>
         /// Constructeur par défaut
         /// </summary>
-        public Entreprise(int idEntreprise, string nomEntreprise, string contactEntreprise, int telephoneContact)
+        public Entreprise(int idEntreprise, string nomEntreprise, string contactEntreprise, int numeroEntreprise)
         {
             this.IDEntreprise = idEntreprise;
             this.NomEntreprise = nomEntreprise;
             this.ContactEntreprise = contactEntreprise;
-            this.TelephoneContact = telephoneContact;
+            this.NumeroEntreprise = numeroEntreprise;
         }
         #endregion
         #region "Methodes"

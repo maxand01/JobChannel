@@ -20,8 +20,16 @@ namespace Test
             }
 
             DALEntreprise et = new DALEntreprise();
-            int cb = et.UpdateEntreprise(2,"Test");
-            Console.WriteLine(cb);
+            //int cb = et.UpdateEntreprise(2,"Test");
+            //Console.WriteLine(cb);
+
+            Console.WriteLine("Entreprise"); 
+            List<Entreprise> te = et.GetAllEntreprises();
+            foreach (Entreprise item in te)
+            {
+                Console.WriteLine(item.IDEntreprise + " " + item.NomEntreprise + " " + item.NumeroEntreprise + " "+ item.ContactEntreprise);
+            }
+
 
             DALOffre of = new DALOffre();
             List<Offre> o = of.GetAllOffres();
@@ -29,6 +37,8 @@ namespace Test
             {
                 Console.WriteLine(os.TitreOffre);
             }
+
+             
             Console.ReadKey();
 
         }		

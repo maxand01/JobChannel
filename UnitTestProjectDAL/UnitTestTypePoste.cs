@@ -11,7 +11,7 @@ namespace UnitTestProjectDAL
         public void TestGetAllTypePoste()
         {
             DALTypePoste getAllTypePoste = new DALTypePoste();
-            var f = getAllTypePoste.GetAllTypePoste();
+            var f = getAllTypePoste.GetAllTypePostes();
             Assert.IsTrue(f.Count != 0);
         }
     }

@@ -23,7 +23,7 @@ namespace DALJobChannel
 
         public List<Entreprise> GetAllEntreprises()
         {
-            Requete = "Select * from REGION order by NOM_REGION";
+            Requete = "Select * from ENTREPRISE order by NOM_ENTREPRISE";
             SqlCommand objSelectCommand = new SqlCommand(Requete);
             objSelectCommand.Connection = cn.cn;
             DataTable objDataTable = new DataTable();
@@ -37,18 +37,18 @@ namespace DALJobChannel
                 if (row.IsNull("CONTACT_ENTREPRISE"))
                 {
                     entreprise.ContactEntreprise = "Non renseigné";
-                } 
+                }
                 else
                 {
                     entreprise.ContactEntreprise = row["CONTACT_ENTREPRISE"].ToString();
                 }
-                if (row.IsNull("TELEPHONE_CONTACT"))
+                if (row.IsNull("NUMERO_ENTREPRISE"))
                 {
-                    entreprise.TelephoneContact = 0;
+                    entreprise.NumeroEntreprise = 0;
                 }
                 else
                 {
-                    entreprise.TelephoneContact = Convert.ToInt32(row["TELEPHONE_CONTACT"]);
+                    entreprise.NumeroEntreprise = Convert.ToInt32(row["NUMERO_ENTREPRISE"]);
                 }
                 Liste.Add(entreprise);
             }
@@ -73,7 +73,7 @@ namespace DALJobChannel
                 entreprise.IDEntreprise = Convert.ToInt32(row["ID_ENTREPRISE"]);
                 entreprise.NomEntreprise = row["NOM_ENTREPRISE"].ToString();
                 entreprise.ContactEntreprise = row["CONTACT_ENTREPRISE"].ToString();
-                entreprise.TelephoneContact = Convert.ToInt32(row["TELEPHONE_CONTACT"]);
+                entreprise.NumeroEntreprise = Convert.ToInt32(row["NUMERO_ENTREPRISE"]);
                 Liste.Add(entreprise);
             }
             return nbLignes;

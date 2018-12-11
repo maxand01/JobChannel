@@ -38,5 +38,10 @@ namespace WcfServiceJobChannel
         {
             return new DALTypePoste().GetAllTypePostes();
         }
+
+        public int UpdateEntreprise(Entreprise entreprise)
+        {
+            return new DALEntreprise().UpdateEntreprise(entreprise.IDEntreprise, entreprise.ContactEntreprise);
+        }
     }
 }
