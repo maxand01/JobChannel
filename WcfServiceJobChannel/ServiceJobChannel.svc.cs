@@ -14,6 +14,11 @@ namespace WcfServiceJobChannel
     // REMARQUE : pour lancer le client test WCF afin de tester ce service, sélectionnez Service1.svc ou Service1.svc.cs dans l'Explorateur de solutions et démarrez le débogage.
     public class ServiceJobChannel : IServiceJobChannel
     {
+        public List<Offre> GetAll()
+        {
+            return new DALOffre().GetAll();
+        }
+
         public List<Entreprise> GetAllEntreprises()
         {
             return new DALEntreprise().GetAllEntreprises();

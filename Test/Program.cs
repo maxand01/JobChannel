@@ -1,4 +1,5 @@
-﻿using BOJobChannel;
+﻿using BLLJobChannel;
+using BOJobChannel;
 using DALJobChannel;
 using System;
 using System.Collections.Generic;
@@ -32,12 +33,18 @@ namespace Test
 
 
             DALOffre of = new DALOffre();
-            List<Offre> o = of.GetAllOffres();
+            List<Offre> o = of.GetAll();
             foreach (Offre os in o )
             {
-                Console.WriteLine(os.TitreOffre);
+                Console.WriteLine(os.IDRegion);
             }
 
+            Controleur ct = new Controleur();
+            List<Offre> ob = ct.GetAll();
+            foreach (Offre oq in ob)
+            {
+                Console.WriteLine(oq.Region.NomRegion);
+            }
              
             Console.ReadKey();
 

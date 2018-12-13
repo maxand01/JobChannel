@@ -52,6 +52,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BLLJobChannel\BLLJobChannel.csproj">
+      <Project>{c4ceda2c-7d4b-486d-9341-ada9c32583dd}</Project>
+      <Name>BLLJobChannel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BOJobChannel\BOJobChannel.csproj">
       <Project>{6af2492e-a0ef-486a-bcd0-897b1a8b70f3}</Project>
       <Name>BOJobChannel</Name>

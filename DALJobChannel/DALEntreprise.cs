@@ -42,13 +42,13 @@ namespace DALJobChannel
                 {
                     entreprise.ContactEntreprise = row["CONTACT_ENTREPRISE"].ToString();
                 }
-                if (row.IsNull("NUMERO_ENTREPRISE"))
+                if (row.IsNull("TELEPHONE_CONTACT"))
                 {
                     entreprise.NumeroEntreprise = 0;
                 }
                 else
                 {
-                    entreprise.NumeroEntreprise = Convert.ToInt32(row["NUMERO_ENTREPRISE"]);
+                    entreprise.NumeroEntreprise = Convert.ToInt32(row["TELEPHONE_CONTACT"]);
                 }
                 Liste.Add(entreprise);
             }
@@ -73,7 +73,7 @@ namespace DALJobChannel
                 entreprise.IDEntreprise = Convert.ToInt32(row["ID_ENTREPRISE"]);
                 entreprise.NomEntreprise = row["NOM_ENTREPRISE"].ToString();
                 entreprise.ContactEntreprise = row["CONTACT_ENTREPRISE"].ToString();
-                entreprise.NumeroEntreprise = Convert.ToInt32(row["NUMERO_ENTREPRISE"]);
+                entreprise.NumeroEntreprise = Convert.ToInt32(row["TELEPHONE_CONTACT"]);
                 Liste.Add(entreprise);
             }
             return nbLignes;

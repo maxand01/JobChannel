@@ -97,6 +97,10 @@
       <Project>{C4CEDA2C-7D4B-486D-9341-ADA9C32583DD}</Project>
       <Name>BLLJobChannel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BOJobChannel\BOJobChannel.csproj">
+      <Project>{6AF2492E-A0EF-486A-BCD0-897B1A8B70F3}</Project>
+      <Name>BOJobChannel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

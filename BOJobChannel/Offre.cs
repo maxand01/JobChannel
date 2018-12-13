@@ -48,6 +48,13 @@ namespace BOJobChannel
         /// Id Entreprise
         /// </summary>
         public int IDEntreprise { get; set; }
+        /// <summary>
+        /// Objet region
+        /// </summary>
+        public Region Region { get; set; }
+        public TypeContrat TypeContrat { get; set; }
+        public TypePoste TypePoste { get; set; }
+        public Entreprise Entreprise { get; set; }
         #endregion
         #region "Constructeurs"
         /// <summary>
@@ -55,6 +62,11 @@ namespace BOJobChannel
         /// </summary>
         public Offre()
         {
+
+            Region = new Region();
+            TypePoste = new TypePoste();
+            TypeContrat = new TypeContrat();
+            Entreprise = new Entreprise();
 
         }
         /// <summary>
@@ -72,6 +84,10 @@ namespace BOJobChannel
             this.DescriptionOffre = descriptionOffre;
             this.DateOffre = dateOffre;
             this.LienWeb = lienWeb;
+            Region = new Region();
+            TypePoste = new TypePoste();
+            TypeContrat = new TypeContrat();
+            Entreprise = new Entreprise();
         }
         #endregion
         #region "Methodes"

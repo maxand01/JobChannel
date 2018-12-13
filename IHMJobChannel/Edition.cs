@@ -20,8 +20,12 @@ namespace IHMJobChannel
 
         private void Edition_Load(object sender, EventArgs e)
         {
-            Controleur getOffres = new Controleur();
-            dtgOffre.DataSource = getOffres.
+            Controleur getData = new Controleur();
+            comboBoxContrat.DataSource = getData.GetAllTypeContrats();
+            comboBoxContrat.DisplayMember = "NomTypeContrat";
+            comboBoxContrat.ValueMember = "IDTypeContrat";
+            bindingSource1.DataSource = getData.GetAll();
+            dtgOffre.DataSource = bindingSource1;
         }
     }
 }

@@ -36,10 +36,38 @@ namespace DALJobChannel
                 offre.IDTypeContrat = Convert.ToInt32(row["ID_TYPE_CONTRAT"]);
                 offre.IDTypePoste = Convert.ToInt32(row["ID_TYPE_POSTE"]);
                 offre.IDEntreprise = Convert.ToInt32(row["ID_ENTREPRISE"]);
-                offre.TitreOffre = row["TITRE_OFFRE_EMPLOI"].ToString();
+                offre.TitreOffre = row["TITRE_OFFRE"].ToString();
                 offre.DescriptionOffre = row["DESCRIPTION_OFFRE"].ToString();
                 offre.DateOffre = Convert.ToDateTime(row["DATE_OFFRE"]);
                 offre.LienWeb = row["LIEN_WEB"].ToString();
+                Liste.Add(offre);
+            }
+            return Liste;
+        }
+        public List<Offre> GetAll()
+        {
+            Requete = "Select * from VIEW_ALL order by ID_OFFRE";
+            SqlCommand objSelectCommand = new SqlCommand(Requete);
+            objSelectCommand.Connection = cn.cn;
+            DataTable objDataTable = new DataTable();
+            SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
+            objDataAdapter.Fill(objDataTable);
+            foreach (DataRow row in objDataTable.Rows)
+            {
+                Offre offre = new Offre();
+                offre.IDOffre = Convert.ToInt32(row["ID_OFFRE"]);
+                offre.IDRegion = Convert.ToInt32(row["ID_REGION"]);
+                offre.IDTypeContrat = Convert.ToInt32(row["ID_TYPE_CONTRAT"]);
+                offre.IDTypePoste = Convert.ToInt32(row["ID_TYPE_POSTE"]);
+                offre.IDEntreprise = Convert.ToInt32(row["ID_ENTREPRISE"]);
+                offre.TitreOffre = row["TITRE_OFFRE"].ToString();
+                offre.DescriptionOffre = row["DESCRIPTION_OFFRE"].ToString();
+                offre.DateOffre = Convert.ToDateTime(row["DATE_OFFRE"]);
+                offre.LienWeb = row["LIEN_WEB"].ToString();
+                offre.Region.NomRegion = row["NOM_REGION"].ToString();
+                offre.TypeContrat.NomTypeContrat = row["NOM_TYPE_CONTRAT"].ToString();
+                offre.TypePoste.NomPoste = row["NOM_TYPE_POSTE"].ToString();
+                offre.Entreprise.NomEntreprise = row["NOM_ENTREPRISE"].ToString();
                 Liste.Add(offre);
             }
             return Liste;

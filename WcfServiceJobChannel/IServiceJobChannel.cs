@@ -31,7 +31,10 @@ namespace WcfServiceJobChannel
 
         [OperationContract]
         [WebGet(UriTemplate = "Offre?format=json", ResponseFormat = WebMessageFormat.Json)]
-        List<Offre> GetAllOffres();
+        List<Offre> GetAllOffres();[OperationContract]
+
+        [WebGet(UriTemplate = "All?format=json", ResponseFormat = WebMessageFormat.Json)]
+        List<Offre> GetAll();
 
         [OperationContract]
         [WebInvoke(UriTemplate = "Entreprise", Method = "POST", ResponseFormat = WebMessageFormat.Json)]
