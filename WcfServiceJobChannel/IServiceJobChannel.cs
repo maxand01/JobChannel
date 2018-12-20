@@ -31,14 +31,39 @@ namespace WcfServiceJobChannel
 
         [OperationContract]
         [WebGet(UriTemplate = "Offre?format=json", ResponseFormat = WebMessageFormat.Json)]
-        List<Offre> GetAllOffres();[OperationContract]
+        List<Offre> GetAllOffres();
 
+        [OperationContract]
         [WebGet(UriTemplate = "All?format=json", ResponseFormat = WebMessageFormat.Json)]
         List<Offre> GetAll();
 
         [OperationContract]
+        [WebGet(UriTemplate = "GetOffresByPoste/{idTypePoste}?format=json", ResponseFormat = WebMessageFormat.Json)]
+        List<Offre> GetOffresByPoste(string idTypePoste);
+
+        [OperationContract]
+        [WebGet(UriTemplate = "GetOffresByContrat/{idTypeContrat}?format=json", ResponseFormat = WebMessageFormat.Json)]
+        List<Offre> GetOffresByContrat(string idTypeContrat);
+
+        [OperationContract]
+        [WebGet(UriTemplate = "GetOffresByEntreprise/{idEntreprise}?format=json", ResponseFormat = WebMessageFormat.Json)]
+        List<Offre> GetOffresByEntreprise(string idTypeEntreprise);
+
+        [OperationContract]
+        [WebGet(UriTemplate = "GetOffresByRegion/{idRegion}?format=json", ResponseFormat = WebMessageFormat.Json)]
+        List<Offre> GetOffresByRegion(string idRegion);
+
+        [OperationContract]
         [WebInvoke(UriTemplate = "Entreprise", Method = "POST", ResponseFormat = WebMessageFormat.Json)]
         int UpdateEntreprise(Entreprise entreprise);
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "Offre", Method = "POST", ResponseFormat = WebMessageFormat.Json)]
+        int UpdateOffre(Offre offre);
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "AjouterOffre", Method = "POST", ResponseFormat = WebMessageFormat.Json)]
+        int AddOffre(Offre offre);
         // TODO: ajoutez vos opérations de service ici
     }    
 }

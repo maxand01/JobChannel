@@ -4,8 +4,10 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.ServiceModel.Channels;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DALJobChannel
 {
@@ -83,9 +85,17 @@ namespace DALJobChannel
         /// </summary>
         public Connection()
         {
-            cn = new SqlConnection();
-            cn.ConnectionString = "Data Source=176.31.248.137;Initial Catalog=user18;Persist Security Info=True;User ID=user18;Password=711user18";
-            cn.Open();
+            try
+            {
+                cn = new SqlConnection();
+                cn.ConnectionString = "Data Source=176.31.248.137;Initial Catalog=user18;Persist Security Info=True;User ID=user18;Password=711user18";
+                cn.Open();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Connection BDD");
+            }
         }
     }
 }

@@ -33,9 +33,9 @@
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnRead = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
@@ -104,15 +104,6 @@
             this.panel2.Size = new System.Drawing.Size(391, 213);
             this.panel2.TabIndex = 0;
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btnAdd);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(400, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(391, 213);
-            this.panel3.TabIndex = 1;
-            // 
             // btnEdit
             // 
             this.btnEdit.Location = new System.Drawing.Point(126, 82);
@@ -123,23 +114,33 @@
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // btnAdd
+            // panel3
             // 
-            this.btnAdd.Location = new System.Drawing.Point(156, 82);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(123, 48);
-            this.btnAdd.TabIndex = 1;
-            this.btnAdd.Text = "Ajouter une offre";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.panel3.Controls.Add(this.btnRead);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(400, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(391, 213);
+            this.panel3.TabIndex = 1;
             // 
-            // Form1
+            // btnRead
+            // 
+            this.btnRead.Location = new System.Drawing.Point(156, 82);
+            this.btnRead.Name = "btnRead";
+            this.btnRead.Size = new System.Drawing.Size(123, 48);
+            this.btnRead.TabIndex = 1;
+            this.btnRead.Text = "Consulter une offre";
+            this.btnRead.UseVisualStyleBackColor = true;
+            this.btnRead.Click += new System.EventHandler(this.btnRead_Click);
+            // 
+            // Accueil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "Form1";
+            this.Name = "Accueil";
             this.Text = "Form1";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -160,7 +161,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnRead;
     }
 }
 

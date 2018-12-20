@@ -3,6 +3,7 @@ using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using WcfServiceJobChannel;
@@ -83,9 +84,89 @@ namespace BLLJobChannel
             var response = Client.Execute<List<Offre>>(request);
             if (response.ResponseStatus == ResponseStatus.Completed)
             {
+                listeOffre = response.Data;                
+            }
+            return listeOffre;
+        }
+
+        public int UpdateOffre(Offre offre)
+        {
+            int resultat = 0;
+            var request = new RestRequest("Offre", Method.POST);
+            request.RequestFormat = DataFormat.Json;
+            request.AddBody(offre);
+            var response = Client.Execute<int>(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                resultat = response.Data;
+            }
+            return resultat;
+        }
+        public int AddOffre(Offre offre)
+        {
+            int resultat = 0;
+            var request = new RestRequest("Offre", Method.POST);
+            request.RequestFormat = DataFormat.Json;
+            request.AddBody(offre);
+            var response = Client.Execute<int>(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                resultat = response.Data;
+            }
+            return resultat;
+        }
+        public List<Offre> GetOffresByPoste(string idTypePoste)
+        {
+            List<Offre> listeOffre = null;
+            var request = new RestRequest("GetOffresByPoste/{idTypePoste}?format=json", Method.GET);
+            request.AddParameter("idTypePoste", idTypePoste, ParameterType.UrlSegment);
+            var response = Client.Execute<List<Offre>>(request);
+            if (response.ResponseStatus == ResponseStatus.Completed)
+            {
                 listeOffre = response.Data;
             }
             return listeOffre;
+
+        }
+        public List<Offre> GetOffresByContrat(string idTypeContrat)
+        {
+            List<Offre> listeOffre = null;
+            var request = new RestRequest("GetOffresByTypeContrat/{idTypeContrat}?format=json", Method.GET);
+            request.AddParameter("idTypePoste", idTypeContrat, ParameterType.UrlSegment);
+            var response = Client.Execute<List<Offre>>(request);
+            if (response.ResponseStatus == ResponseStatus.Completed)
+            {
+                listeOffre = response.Data;
+            }
+            return listeOffre;
+        }
+
+        public List<Offre> GetOffresByEntreprise(string idEntreprise)
+        {
+            List<Offre> listeOffre = null;
+            var request = new RestRequest("GetOffresByEntreprise/{idEntreprise}?format=json", Method.GET);
+            request.AddParameter("idTypePoste", idEntreprise, ParameterType.UrlSegment);
+            var response = Client.Execute<List<Offre>>(request);
+            if (response.ResponseStatus == ResponseStatus.Completed)
+            {
+                listeOffre = response.Data;
+            }
+            return listeOffre;
+
+        }
+
+        public List<Offre> GetOffresByRegion(string idRegion)
+        {
+            List<Offre> listeOffre = null;
+            var request = new RestRequest("GetOffresByRegion/{idRegion}?format=json", Method.GET);
+            request.AddParameter("idTypePoste", idRegion, ParameterType.UrlSegment);
+            var response = Client.Execute<List<Offre>>(request);
+            if (response.ResponseStatus == ResponseStatus.Completed)
+            {
+                listeOffre = response.Data;
+            }
+            return listeOffre;
+
         }
     }
 }

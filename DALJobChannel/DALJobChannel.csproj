@@ -34,6 +34,8 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -64,7 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BOJobChannel\BOJobChannel.csproj">
-      <Project>{6af2492e-a0ef-486a-bcd0-897b1a8b70f3}</Project>
+      <Project>{6AF2492E-A0EF-486A-BCD0-897B1A8B70F3}</Project>
       <Name>BOJobChannel</Name>
     </ProjectReference>
   </ItemGroup>

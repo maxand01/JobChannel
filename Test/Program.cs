@@ -31,21 +31,30 @@ namespace Test
                 Console.WriteLine(item.IDEntreprise + " " + item.NomEntreprise + " " + item.NumeroEntreprise + " "+ item.ContactEntreprise);
             }
 
+            //Console.WriteLine("Test DAL");
+            //DALOffre offre = new DALOffre();
+            //List<Offre> offres = offre.GetAll();
+            //foreach (Offre objOffre in offres )
+            //{
+            //    Console.WriteLine(objOffre.Region.NomRegion);
+            //}
 
-            DALOffre of = new DALOffre();
-            List<Offre> o = of.GetAll();
-            foreach (Offre os in o )
+            //Console.WriteLine("Test BLL");
+            //Controleur controleur = new Controleur();
+            //List<Offre> offres = controleur.GetAll();
+            //foreach (Offre offre in offres)
+            //{
+            //    Console.WriteLine(offre.Region.NomRegion);
+            //}
+
+            Console.WriteLine("Test DAL");
+            DALOffre offre = new DALOffre();
+            List<Offre> offres = offre.GetOffresByPoste("1");
+            foreach (Offre objOffre in offres)
             {
-                Console.WriteLine(os.IDRegion);
+                Console.WriteLine(objOffre.Region.NomRegion);
             }
 
-            Controleur ct = new Controleur();
-            List<Offre> ob = ct.GetAll();
-            foreach (Offre oq in ob)
-            {
-                Console.WriteLine(oq.Region.NomRegion);
-            }
-             
             Console.ReadKey();
 
         }		

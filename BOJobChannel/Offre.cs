@@ -27,7 +27,7 @@ namespace BOJobChannel
         /// <summary>
         /// Date offre
         /// </summary>
-        public DateTime DateOffre { get; set; }
+        public string DateOffre { get; set; }
         /// <summary>
         /// Lien Web
         /// </summary>
@@ -77,7 +77,7 @@ namespace BOJobChannel
         /// <param name="descriptionOffre"></param>
         /// <param name="dateOffre"></param>
         /// <param name="lienWeb"></param>
-        public Offre(int idOffre, string titreOffre, string descriptionOffre, DateTime dateOffre, string lienWeb)
+        public Offre(int idOffre, string titreOffre, string descriptionOffre, string dateOffre, string lienWeb)
         {
             this.IDOffre = idOffre;
             this.TitreOffre = titreOffre;

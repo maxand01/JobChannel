@@ -32,7 +32,7 @@ namespace DALJobChannel
             {
                 TypeContrat contrat = new TypeContrat();
                 contrat.IDTypeContrat = Convert.ToInt32(row["ID_TYPE_CONTRAT"]);
-                contrat.NomTypeContrat = row["NOM_TYPE_CONTRAT"].ToString();
+                contrat.NomTypeContrat =Convert.ToString( row["NOM_TYPE_CONTRAT"]);
                 Liste.Add(contrat);
             }
             return Liste;

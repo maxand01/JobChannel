@@ -43,6 +43,11 @@ namespace BOJobChannel
         #region "Methodes"
         #endregion
         #region "Methodes héritées et substituées"
+
+        public override string ToString()
+        {
+            return NomRegion;
+        }
         #endregion
         #region "Methodes à implementer pour les interfaces"
         #endregion

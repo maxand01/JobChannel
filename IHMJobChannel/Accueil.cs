@@ -27,5 +27,16 @@ namespace IHMJobChannel
                 this.Opacity = 1;
             }
         }
+
+        private void btnRead_Click(object sender, EventArgs e)
+        {
+            using (Consultation FenConsult= new Consultation())
+            {
+                FenConsult.BackColor = Color.Beige;
+                this.Opacity = 0.75;
+                FenConsult.ShowDialog();
+                this.Opacity = 1;
+            }
+        }
     }
 }
