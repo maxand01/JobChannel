@@ -47,14 +47,18 @@ namespace Test
             //    Console.WriteLine(offre.Region.NomRegion);
             //}
 
-            Console.WriteLine("Test DAL");
-            DALOffre offre = new DALOffre();
-            List<Offre> offres = offre.GetOffresByPoste("1");
-            foreach (Offre objOffre in offres)
-            {
-                Console.WriteLine(objOffre.Region.NomRegion);
-            }
+            //Console.WriteLine("Test DAL");
+            //DALOffre offre = new DALOffre();
+            //List<Offre> offres = offre.GetOffresByPoste("1");
+            //foreach (Offre objOffre in offres)
+            //{
+            //    Console.WriteLine(objOffre.Region.NomRegion);
+            //}
 
+            Console.WriteLine("Test Insert");
+            DALOffre offre = new DALOffre();
+                int offres = offre.AddOffre(0,1,1,1,1,"test","wbdfb","13/02/2015","bwbdsb");
+            Console.WriteLine(offres);
             Console.ReadKey();
 
         }		

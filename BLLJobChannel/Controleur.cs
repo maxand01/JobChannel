@@ -1,4 +1,5 @@
 ﻿using BOJobChannel;
+using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -107,6 +108,9 @@ namespace BLLJobChannel
             int resultat = 0;
             var request = new RestRequest("Offre", Method.POST);
             request.RequestFormat = DataFormat.Json;
+            var settings = new JsonSerializerSettings() { DateFormatHandling = DateFormatHandling.MicrosoftDateFormat };
+            string json = JsonConvert.SerializeObject(offre, settings);
+            request.AddParameter("application/json", json, ParameterType.RequestBody);
             request.AddBody(offre);
             var response = Client.Execute<int>(request);
             if (response.StatusCode == HttpStatusCode.OK)

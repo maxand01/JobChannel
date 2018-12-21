@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonnAddOffre = new System.Windows.Forms.Button();
+            this.buttonReinit = new System.Windows.Forms.Button();
+            this.labelResultatMaj = new System.Windows.Forms.Label();
             this.buttonMajOffre = new System.Windows.Forms.Button();
             this.richTextBoxDesc = new System.Windows.Forms.RichTextBox();
             this.comboBoxRegion = new System.Windows.Forms.ComboBox();
@@ -48,9 +51,6 @@
             this.bindingSourceEntreprise = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceRegion = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceDtg = new System.Windows.Forms.BindingSource(this.components);
-            this.labelResultatMaj = new System.Windows.Forms.Label();
-            this.buttonReinit = new System.Windows.Forms.Button();
-            this.buttonnAddOffre = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -82,7 +82,6 @@
             // 
             this.panel2.Controls.Add(this.buttonnAddOffre);
             this.panel2.Controls.Add(this.buttonReinit);
-            this.panel2.Controls.Add(this.labelResultatMaj);
             this.panel2.Controls.Add(this.buttonMajOffre);
             this.panel2.Controls.Add(this.richTextBoxDesc);
             this.panel2.Controls.Add(this.comboBoxRegion);
@@ -97,6 +96,34 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(284, 444);
             this.panel2.TabIndex = 1;
+            // 
+            // buttonnAddOffre
+            // 
+            this.buttonnAddOffre.Location = new System.Drawing.Point(11, 412);
+            this.buttonnAddOffre.Name = "buttonnAddOffre";
+            this.buttonnAddOffre.Size = new System.Drawing.Size(75, 23);
+            this.buttonnAddOffre.TabIndex = 11;
+            this.buttonnAddOffre.Text = "Ajouter offre";
+            this.buttonnAddOffre.UseVisualStyleBackColor = true;
+            this.buttonnAddOffre.Click += new System.EventHandler(this.buttonnAddOffre_Click);
+            // 
+            // buttonReinit
+            // 
+            this.buttonReinit.Location = new System.Drawing.Point(96, 364);
+            this.buttonReinit.Name = "buttonReinit";
+            this.buttonReinit.Size = new System.Drawing.Size(90, 37);
+            this.buttonReinit.TabIndex = 10;
+            this.buttonReinit.Text = "Reinitialiser champs";
+            this.buttonReinit.UseVisualStyleBackColor = true;
+            this.buttonReinit.Click += new System.EventHandler(this.buttonReinit_Click);
+            // 
+            // labelResultatMaj
+            // 
+            this.labelResultatMaj.AutoSize = true;
+            this.labelResultatMaj.Location = new System.Drawing.Point(385, 422);
+            this.labelResultatMaj.Name = "labelResultatMaj";
+            this.labelResultatMaj.Size = new System.Drawing.Size(0, 13);
+            this.labelResultatMaj.TabIndex = 1;
             // 
             // buttonMajOffre
             // 
@@ -175,6 +202,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.dtgOffre);
+            this.panel1.Controls.Add(this.labelResultatMaj);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
@@ -196,34 +224,6 @@
             // 
             this.bindingSourceDtg.CurrentChanged += new System.EventHandler(this.bindingSourceDtg_CurrentChanged);
             // 
-            // labelResultatMaj
-            // 
-            this.labelResultatMaj.AutoSize = true;
-            this.labelResultatMaj.Location = new System.Drawing.Point(8, 422);
-            this.labelResultatMaj.Name = "labelResultatMaj";
-            this.labelResultatMaj.Size = new System.Drawing.Size(0, 13);
-            this.labelResultatMaj.TabIndex = 1;
-            // 
-            // buttonReinit
-            // 
-            this.buttonReinit.Location = new System.Drawing.Point(96, 364);
-            this.buttonReinit.Name = "buttonReinit";
-            this.buttonReinit.Size = new System.Drawing.Size(90, 37);
-            this.buttonReinit.TabIndex = 10;
-            this.buttonReinit.Text = "Reinitialiser champs";
-            this.buttonReinit.UseVisualStyleBackColor = true;
-            this.buttonReinit.Click += new System.EventHandler(this.buttonReinit_Click);
-            // 
-            // buttonnAddOffre
-            // 
-            this.buttonnAddOffre.Location = new System.Drawing.Point(11, 412);
-            this.buttonnAddOffre.Name = "buttonnAddOffre";
-            this.buttonnAddOffre.Size = new System.Drawing.Size(75, 23);
-            this.buttonnAddOffre.TabIndex = 11;
-            this.buttonnAddOffre.Text = "Ajouter offre";
-            this.buttonnAddOffre.UseVisualStyleBackColor = true;
-            this.buttonnAddOffre.Click += new System.EventHandler(this.buttonnAddOffre_Click);
-            // 
             // Edition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,8 +235,8 @@
             this.Load += new System.EventHandler(this.Edition_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgOffre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTypeContrat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceOffre)).EndInit();
