@@ -130,9 +130,9 @@ namespace BLLJobChannel
         }
         public List<Offre> GetOffresByContrat(string idTypeContrat)
         {
-            List<Offre> listeOffre = null;
-            var request = new RestRequest("GetOffresByTypeContrat/{idTypeContrat}?format=json", Method.GET);
-            request.AddParameter("idTypePoste", idTypeContrat, ParameterType.UrlSegment);
+            List<Offre> listeOffre = new List<Offre>();
+            var request = new RestRequest("GetOffresByContrat/{idTypeContrat}?format=json", Method.GET);
+            request.AddParameter("idTypeContrat", idTypeContrat, ParameterType.UrlSegment);
             var response = Client.Execute<List<Offre>>(request);
             if (response.ResponseStatus == ResponseStatus.Completed)
             {
@@ -145,7 +145,7 @@ namespace BLLJobChannel
         {
             List<Offre> listeOffre = null;
             var request = new RestRequest("GetOffresByEntreprise/{idEntreprise}?format=json", Method.GET);
-            request.AddParameter("idTypePoste", idEntreprise, ParameterType.UrlSegment);
+            request.AddParameter("idEntreprise", idEntreprise, ParameterType.UrlSegment);
             var response = Client.Execute<List<Offre>>(request);
             if (response.ResponseStatus == ResponseStatus.Completed)
             {
@@ -159,7 +159,7 @@ namespace BLLJobChannel
         {
             List<Offre> listeOffre = null;
             var request = new RestRequest("GetOffresByRegion/{idRegion}?format=json", Method.GET);
-            request.AddParameter("idTypePoste", idRegion, ParameterType.UrlSegment);
+            request.AddParameter("idRegion", idRegion, ParameterType.UrlSegment);
             var response = Client.Execute<List<Offre>>(request);
             if (response.ResponseStatus == ResponseStatus.Completed)
             {

@@ -47,7 +47,7 @@ namespace WcfServiceJobChannel
 
         [OperationContract]
         [WebGet(UriTemplate = "GetOffresByEntreprise/{idEntreprise}?format=json", ResponseFormat = WebMessageFormat.Json)]
-        List<Offre> GetOffresByEntreprise(string idTypeEntreprise);
+        List<Offre> GetOffresByEntreprise(string idEntreprise);
 
         [OperationContract]
         [WebGet(UriTemplate = "GetOffresByRegion/{idRegion}?format=json", ResponseFormat = WebMessageFormat.Json)]

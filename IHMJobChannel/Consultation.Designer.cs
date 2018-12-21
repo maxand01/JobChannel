@@ -40,6 +40,7 @@
             this.bindingSourceContrat = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceEntreprise = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceRegion = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSourceOffre = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgOffre)).BeginInit();
             this.panel1.SuspendLayout();
@@ -47,6 +48,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceContrat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEntreprise)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRegion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceOffre)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -101,6 +103,7 @@
             this.comboBoxContrat.Name = "comboBoxContrat";
             this.comboBoxContrat.Size = new System.Drawing.Size(121, 21);
             this.comboBoxContrat.TabIndex = 1;
+            this.comboBoxContrat.SelectedIndexChanged += new System.EventHandler(this.comboBoxContrat_SelectedIndexChanged);
             // 
             // comboBoxEntreprise
             // 
@@ -109,6 +112,7 @@
             this.comboBoxEntreprise.Name = "comboBoxEntreprise";
             this.comboBoxEntreprise.Size = new System.Drawing.Size(121, 21);
             this.comboBoxEntreprise.TabIndex = 2;
+            this.comboBoxEntreprise.SelectedIndexChanged += new System.EventHandler(this.comboBoxEntreprise_SelectedIndexChanged);
             // 
             // comboBoxRegion
             // 
@@ -117,6 +121,7 @@
             this.comboBoxRegion.Name = "comboBoxRegion";
             this.comboBoxRegion.Size = new System.Drawing.Size(121, 21);
             this.comboBoxRegion.TabIndex = 3;
+            this.comboBoxRegion.SelectedIndexChanged += new System.EventHandler(this.comboBoxRegion_SelectedIndexChanged);
             // 
             // Consultation
             // 
@@ -134,6 +139,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceContrat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEntreprise)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRegion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceOffre)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -151,5 +157,6 @@
         private System.Windows.Forms.BindingSource bindingSourceContrat;
         private System.Windows.Forms.BindingSource bindingSourceEntreprise;
         private System.Windows.Forms.BindingSource bindingSourceRegion;
+        private System.Windows.Forms.BindingSource bindingSourceOffre;
     }
 }
