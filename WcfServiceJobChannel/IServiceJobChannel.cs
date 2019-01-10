@@ -64,6 +64,9 @@ namespace WcfServiceJobChannel
         [OperationContract]
         [WebInvoke(UriTemplate = "AjouterOffre", Method = "POST", ResponseFormat = WebMessageFormat.Json)]
         int AddOffre(Offre offre);
-        // TODO: ajoutez vos opérations de service ici
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "SupprimerOffre", Method = "POST", ResponseFormat = WebMessageFormat.Json)]
+        int DeleteOffre(string idOffre);
     }    
 }

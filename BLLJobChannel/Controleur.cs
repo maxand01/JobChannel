@@ -106,12 +106,28 @@ namespace BLLJobChannel
         public int AddOffre(Offre offre)
         {
             int resultat = 0;
-            var request = new RestRequest("Offre", Method.POST);
+            var request = new RestRequest("AjouterOffre", Method.POST);
             request.RequestFormat = DataFormat.Json;
             var settings = new JsonSerializerSettings() { DateFormatHandling = DateFormatHandling.MicrosoftDateFormat };
             string json = JsonConvert.SerializeObject(offre, settings);
             request.AddParameter("application/json", json, ParameterType.RequestBody);
             request.AddBody(offre);
+            var response = Client.Execute<int>(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                resultat = response.Data;
+            }
+            return resultat;
+        }
+        public int DeleteOffre(string idOffre)
+        {
+            int resultat = 0;
+            var request = new RestRequest("SupprimerOffre", Method.POST);
+            request.RequestFormat = DataFormat.Json;
+            //var settings = new JsonSerializerSettings() { DateFormatHandling = DateFormatHandling.MicrosoftDateFormat };
+            //string json = JsonConvert.SerializeObject(offre, settings);
+            //request.AddParameter("application/json", json, ParameterType.RequestBody);
+            request.AddBody(idOffre);
             var response = Client.Execute<int>(request);
             if (response.StatusCode == HttpStatusCode.OK)
             {

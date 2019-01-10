@@ -77,13 +77,17 @@ namespace BOJobChannel
         /// <param name="descriptionOffre"></param>
         /// <param name="dateOffre"></param>
         /// <param name="lienWeb"></param>
-        public Offre(int idOffre, string titreOffre, string descriptionOffre, string dateOffre, string lienWeb)
+        public Offre(int idRegion, int idTypeContrat, int idTypePoste, int idEntreprise,string titreOffre, string descriptionOffre, string dateOffre, string lienWeb)
         {
-            this.IDOffre = idOffre;
+            //this.IDOffre = idOffre;
             this.TitreOffre = titreOffre;
             this.DescriptionOffre = descriptionOffre;
             this.DateOffre = dateOffre;
             this.LienWeb = lienWeb;
+            this.IDRegion = idRegion;
+            this.IDTypeContrat = idTypeContrat;
+            this.IDTypePoste = idTypePoste;
+            this.IDEntreprise = idEntreprise;
             Region = new Region();
             TypePoste = new TypePoste();
             TypeContrat = new TypeContrat();

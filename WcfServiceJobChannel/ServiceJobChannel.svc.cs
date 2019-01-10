@@ -16,7 +16,12 @@ namespace WcfServiceJobChannel
     {
         public int AddOffre(Offre offre)
         {
-            return new DALOffre().AddOffre(offre.IDOffre, offre.IDRegion, offre.IDTypeContrat, offre.IDTypePoste, offre.IDEntreprise, offre.TitreOffre, offre.DescriptionOffre, offre.DateOffre, offre.LienWeb);
+            return new DALOffre().AddOffre(offre.IDRegion, offre.IDTypeContrat, offre.IDTypePoste, offre.IDEntreprise, offre.TitreOffre, offre.DescriptionOffre, offre.DateOffre, offre.LienWeb);
+        }
+
+        public int DeleteOffre(string idOffre)
+        {
+            return new DALOffre().DeleteOffre(idOffre);
         }
 
         public List<Offre> GetAll()

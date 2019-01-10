@@ -89,19 +89,23 @@ namespace IHMJobChannel
 
         private void buttonMajOffre_Click(object sender, EventArgs e)
         {
-            Offre offreCourante = (Offre)bindingSourceDtg.Current;
-            offreCourante.DescriptionOffre = richTextBoxDesc.Text;
-            offreCourante.IDTypeContrat = (int)comboBoxContrat.SelectedValue;
-            offreCourante.IDEntreprise = (int)comboBoxEntreprise.SelectedValue;
-            offreCourante.LienWeb = comboBoxLienWeb.Text;
-            offreCourante.IDRegion = (int)comboBoxRegion.SelectedValue;
-            offreCourante.IDTypePoste = (int)comboBoxPoste.SelectedValue;
-            offreCourante.TitreOffre = comboBoxTitre.Text;
-            offreCourante.DateOffre =Convert.ToDateTime(comboBoxDate.Text).ToString("dd/MM/yyyy");
-            int nbLignes = GetControleur.UpdateOffre(offreCourante);
+            if (MessageBox.Show("Etes-vous sûr de vouloir modifier cette offre", "Modification de l'offre", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                Offre offreCourante = (Offre)bindingSourceDtg.Current;
+                offreCourante.DescriptionOffre = richTextBoxDesc.Text;
+                offreCourante.IDTypeContrat = (int)comboBoxContrat.SelectedValue;
+                offreCourante.IDEntreprise = (int)comboBoxEntreprise.SelectedValue;
+                offreCourante.LienWeb = comboBoxLienWeb.Text;
+                offreCourante.IDRegion = (int)comboBoxRegion.SelectedValue;
+                offreCourante.IDTypePoste = (int)comboBoxPoste.SelectedValue;
+                offreCourante.TitreOffre = comboBoxTitre.Text;
+                offreCourante.DateOffre = Convert.ToDateTime(comboBoxDate.Text).ToString("dd/MM/yyyy");
+                int nbLignes = GetControleur.UpdateOffre(offreCourante);
 
-            labelResultatMaj.Text = nbLignes + "ligne(s) mise à jour";
-            LoadDataGrid();
+                labelResultatMaj.Text = nbLignes + "ligne(s) mise à jour";
+                LoadDataGrid();
+            }
+                
         }
 
         private void buttonReinit_Click(object sender, EventArgs e)
@@ -130,9 +134,21 @@ namespace IHMJobChannel
             offreCourante.DateOffre = Convert.ToDateTime(comboBoxDate.Text).ToString("dd/MM/yyyy");
             int nbLignes = GetControleur.AddOffre(offreCourante);
 
-            labelResultatMaj.Text = nbLignes + "ligne(s) mise à jour";
+            labelResultatMaj.Text = nbLignes + "ligne(s) ajoutée(s)";
 
             LoadDataGrid();
+        }
+
+        private void buttonDeleteOffre_Click(object sender, EventArgs e)
+        {
+            if( MessageBox.Show("Etes-vous sûr de vouloir supprimer cette offre", "Suppression de l'offre", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                int nbLignes = GetControleur.DeleteOffre(dtgOffre.CurrentRow.Cells["IDOffre"].Value.ToString());
+                labelResultatMaj.Text = nbLignes + "ligne(s)supprimée(s)";
+            }                
+
+            LoadDataGrid();
+
         }
     }
 }

@@ -89,31 +89,34 @@ namespace DALJobChannel
             objSelectCommand.Parameters.AddWithValue("@DATE_OFFRE", dateOffre);
             objSelectCommand.Parameters.AddWithValue("@LIEN_WEB", lienWeb);
             int nbLignes = objSelectCommand.ExecuteNonQuery();
-            DataTable objDataTable = new DataTable();
-            SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
-            objDataAdapter.Fill(objDataTable);            
+            //DataTable objDataTable = new DataTable();
+            //SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
+            //objDataAdapter.Fill(objDataTable);            
             return nbLignes;
         }
 
-        public int AddOffre(int idOffre, int idRegion, int idTypeContrat, int idTypePoste, int idEntreprise, string titreOffre, string descriptionOffre, string dateOffre, string lienWeb)
+        public int AddOffre(int idRegion, int idTypeContrat, int idTypePoste, int idEntreprise, string titreOffre, string descriptionOffre, string dateOffre, string lienWeb)
         {
             SqlCommand objSelectCommand = new SqlCommand();
             objSelectCommand.Connection = cn.cn;
-            objSelectCommand.CommandText = "dbo.UpdateOffre";
+            //objSelectCommand.Connection.Open();
+            objSelectCommand.CommandText = "dbo.AddOffre";
             objSelectCommand.CommandType = CommandType.StoredProcedure;
-            objSelectCommand.Parameters.AddWithValue("@ID_OFFRE", idOffre);
+            //objSelectCommand.Parameters.AddWithValue("@ID_OFFRE", idOffre);
             objSelectCommand.Parameters.AddWithValue("@ID_REGION", idRegion);
             objSelectCommand.Parameters.AddWithValue("@ID_TYPE_CONTRAT", idTypeContrat);
             objSelectCommand.Parameters.AddWithValue("@ID_TYPE_POSTE", idTypePoste);
             objSelectCommand.Parameters.AddWithValue("@ID_ENTREPRISE", idEntreprise);
             objSelectCommand.Parameters.AddWithValue("@TITRE_OFFRE", titreOffre);
             objSelectCommand.Parameters.AddWithValue("@DESCRIPTION_OFFRE", descriptionOffre);
-            objSelectCommand.Parameters.AddWithValue("@DATE_OFFRE", dateOffre);
+            objSelectCommand.Parameters.AddWithValue("@DATE_OFFRE", Convert.ToDateTime(dateOffre));
             objSelectCommand.Parameters.AddWithValue("@LIEN_WEB", lienWeb);
             int nbLignes = objSelectCommand.ExecuteNonQuery();
-            DataTable objDataTable = new DataTable();
-            SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
-            objDataAdapter.Fill(objDataTable);
+            //objSelectCommand.Connection.Close();
+
+            //DataTable objDataTable = new DataTable();
+            //SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
+            //objDataAdapter.Fill(objDataTable);
             return nbLignes;
         }
 
@@ -239,6 +242,18 @@ namespace DALJobChannel
                 Liste.Add(offre);
             }
             return Liste;
+        }
+
+        public int DeleteOffre(string idOffre)
+        { 
+            SqlCommand objSelectCommand = new SqlCommand();
+            objSelectCommand.Connection = cn.cn;
+            //objSelectCommand.Connection.Open();
+            objSelectCommand.CommandText = "dbo.DeleteOffre";
+            objSelectCommand.CommandType = CommandType.StoredProcedure;
+            objSelectCommand.Parameters.AddWithValue("@ID_OFFRE", idOffre);
+            int nbLignes = objSelectCommand.ExecuteNonQuery();
+            return nbLignes;
         }
     }
 }

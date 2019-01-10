@@ -55,12 +55,18 @@ namespace Test
             //    Console.WriteLine(objOffre.Region.NomRegion);
             //}
 
-            Console.WriteLine("Test Insert");
-            DALOffre offre = new DALOffre();
-                int offres = offre.AddOffre(0,1,1,1,1,"test","wbdfb","13/02/2015","bwbdsb");
-            Console.WriteLine(offres);
+            //Console.WriteLine("Test Insert");
+            //DALOffre offre = new DALOffre();
+            //int offres = offre.AddOffre(1, 1, 1, 1, "test1233czzzzzc546", "wbdfb", "13/02/2015", "GGGGGGGG");
+            //Console.WriteLine(offres);
+            //Console.ReadKey();
+
+            Console.WriteLine("Test Insert With Web Service");
+            Controleur ctrl = new Controleur();
+            Offre offre = new Offre(1, 1, 1, 1, "testFabien2", "wbdfb", "13/02/2015", "HHHH");
+            int offres = ctrl.AddOffre(offre);
             Console.ReadKey();
 
-        }		
+        }
     }
 }
