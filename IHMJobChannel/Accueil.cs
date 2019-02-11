@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.DirectoryServices.AccountManagement;
 
 namespace IHMJobChannel
 {
@@ -15,6 +16,9 @@ namespace IHMJobChannel
         public Accueil()
         {
             InitializeComponent();
+            labelNom.Text = "Bonjour " + UserPrincipal.Current.GivenName;
+            toolTipAccueil.SetToolTip(btnEdit, "Ajouter, modifier ou supprimer une offre");
+            toolTipAccueil.SetToolTip(btnRead, "Consulter une offre");
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

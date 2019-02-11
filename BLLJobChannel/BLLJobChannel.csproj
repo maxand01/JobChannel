@@ -38,6 +38,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,6 +57,10 @@
     <ProjectReference Include="..\BOJobChannel\BOJobChannel.csproj">
       <Project>{6AF2492E-A0EF-486A-BCD0-897B1A8B70F3}</Project>
       <Name>BOJobChannel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DALJobChannel\DALJobChannel.csproj">
+      <Project>{7DF34FC1-3E43-4BC9-9EF8-A6935B900DB6}</Project>
+      <Name>DALJobChannel</Name>
     </ProjectReference>
     <ProjectReference Include="..\WcfServiceJobChannel\WcfServiceJobChannel.csproj">
       <Project>{6C1F1DA3-9E6E-429C-B4ED-1DE932919754}</Project>

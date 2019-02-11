@@ -78,24 +78,24 @@ namespace DALJobChannel
         /// <summary>
         /// Propriété SqlConnection cn
         /// </summary>
-        public SqlConnection cn;
+        //public SqlConnection cn;
 
         /// <summary>
         /// Constructeur de connexion BDD
         /// </summary>
-        public Connection()
-        {
-            try
-            {
-                cn = new SqlConnection();
-                cn.ConnectionString = "Data Source=176.31.248.137;Initial Catalog=user18;Persist Security Info=True;User ID=user18;Password=711user18";
-                cn.Open();
-            }
-            catch (Exception)
-            {
+        //public Connection()
+        //{
+        //    try
+        //    {
+        //        cn = new SqlConnection();
+        //        cn.ConnectionString = "Data Source=176.31.248.137;Initial Catalog=user18;Persist Security Info=True;User ID=user18;Password=711user18";
+        //        cn.Open();
+        //    }
+        //    catch (Exception)
+        //    {
 
-                MessageBox.Show("Connection BDD");
-            }
-        }
+        //        MessageBox.Show("Connection BDD");
+        //    }
+        //}
     }
 }

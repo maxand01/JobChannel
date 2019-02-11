@@ -14,9 +14,24 @@ namespace WcfServiceJobChannel
     // REMARQUE : pour lancer le client test WCF afin de tester ce service, sélectionnez Service1.svc ou Service1.svc.cs dans l'Explorateur de solutions et démarrez le débogage.
     public class ServiceJobChannel : IServiceJobChannel
     {
+        public int AddContrat(TypeContrat typeContrat)
+        {
+            return new DALTypeContrat().AddContrat(typeContrat.NomTypeContrat);
+        }
+
+        public int AddEntreprise(Entreprise entreprise)
+        {
+            return new DALEntreprise().AddEntreprise(entreprise.NomEntreprise, entreprise.ContactEntreprise, entreprise.NumeroEntreprise);
+        }
+
         public int AddOffre(Offre offre)
         {
             return new DALOffre().AddOffre(offre.IDRegion, offre.IDTypeContrat, offre.IDTypePoste, offre.IDEntreprise, offre.TitreOffre, offre.DescriptionOffre, offre.DateOffre, offre.LienWeb);
+        }
+
+        public int AddPoste(TypePoste typePoste)
+        {
+            return new DALTypePoste().AddPoste(typePoste.NomPoste);
         }
 
         public int DeleteOffre(string idOffre)
@@ -72,6 +87,11 @@ namespace WcfServiceJobChannel
         public List<Offre> GetOffresByRegion(string idRegion)
         {
             return new DALOffre().GetOffresByRegion(idRegion);
+        }
+
+        public List<Offre> Top10()
+        {
+            return new DALOffre().Top10();
         }
 
         public int UpdateEntreprise(Entreprise entreprise)

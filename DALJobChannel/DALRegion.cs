@@ -12,23 +12,22 @@ namespace DALJobChannel
     public class DALRegion
     {
         public string Requete { get; set; }
-        public Connection cn { get; set; }
         public List<Region> Liste { get; set; }
+
+        private Singleton objSingleton;
 
         public DALRegion()
         {
-            cn = new Connection();
             Liste = new List<Region>();
+            objSingleton = Singleton.Instance();
+
         }
 
         public List<Region> GetAllRegions()
         {
             Requete = "Select * from REGION order by NOM_REGION";
             SqlCommand objSelectCommand = new SqlCommand(Requete);
-            objSelectCommand.Connection = cn.cn;
-            DataTable objDataTable = new DataTable();
-            SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
-            objDataAdapter.Fill(objDataTable);
+            DataTable objDataTable = objSingleton.ExecuteDataTable(objSelectCommand);
             foreach (DataRow row in objDataTable.Rows)
             {
                 Region region = new Region();

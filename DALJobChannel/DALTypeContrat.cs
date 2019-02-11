@@ -12,22 +12,20 @@ namespace DALJobChannel
     public class DALTypeContrat
     {
         public string Requete { get; set; }
-        public Connection cn { get; set; }
         public List<TypeContrat> Liste { get; set; }
+
+        private Singleton objSingleton;
 
         public DALTypeContrat()
         {
-            cn = new Connection();
             Liste = new List<TypeContrat>();
+            objSingleton = Singleton.Instance();
         }
         public List<TypeContrat> GetAllTypeContrats()
         {
             Requete = "Select * from TYPE_CONTRAT order by NOM_TYPE_CONTRAT";
             SqlCommand objSelectCommand = new SqlCommand(Requete);
-            objSelectCommand.Connection = cn.cn;
-            DataTable objDataTable = new DataTable();
-            SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
-            objDataAdapter.Fill(objDataTable);
+            DataTable objDataTable = objSingleton.ExecuteDataTable(objSelectCommand);
             foreach (DataRow row in objDataTable.Rows)
             {
                 TypeContrat contrat = new TypeContrat();
@@ -36,6 +34,18 @@ namespace DALJobChannel
                 Liste.Add(contrat);
             }
             return Liste;
+        }
+
+        public int AddContrat(string nom)
+        {
+            SqlCommand objSelectCommand = new SqlCommand();
+            objSingleton.Open();
+            objSelectCommand.CommandText = "dbo.AddContrat";
+            objSelectCommand.CommandType = CommandType.StoredProcedure;
+            objSelectCommand.Parameters.AddWithValue("@NOM_TYPE_CONTRAT", nom);
+            int nbLignes = objSingleton.ExecuteNonQuery(objSelectCommand);
+            objSingleton.Close();
+            return nbLignes;
         }
     }
 }

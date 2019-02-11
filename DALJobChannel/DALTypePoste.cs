@@ -11,23 +11,20 @@ namespace DALJobChannel
 {
     public class DALTypePoste
     {
+        private Singleton objSingleton;
         public string Requete { get; set; }
-        public Connection cn { get; set; }
         public List<TypePoste> Liste { get; set; }
 
         public DALTypePoste()
         {
-            cn = new Connection();
             Liste = new List<TypePoste>();
+            objSingleton = Singleton.Instance();
         }
         public List<TypePoste> GetAllTypePostes()
         {
             Requete = "Select * from TYPE_POSTE order by NOM_TYPE_POSTE";
             SqlCommand objSelectCommand = new SqlCommand(Requete);
-            objSelectCommand.Connection = cn.cn;
-            DataTable objDataTable = new DataTable();
-            SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
-            objDataAdapter.Fill(objDataTable);
+            DataTable objDataTable = objSingleton.ExecuteDataTable(objSelectCommand);
             foreach (DataRow row in objDataTable.Rows)
             {
                 TypePoste poste = new TypePoste();
@@ -36,6 +33,17 @@ namespace DALJobChannel
                 Liste.Add(poste);
             }
             return Liste;
-        }        
+        }
+        public int AddPoste(string nom)
+        {
+            SqlCommand objSelectCommand = new SqlCommand();
+            objSingleton.Open();
+            objSelectCommand.CommandText = "dbo.AddPoste";
+            objSelectCommand.CommandType = CommandType.StoredProcedure;
+            objSelectCommand.Parameters.AddWithValue("@NOM_TYPE_POSTE", nom);
+            int nbLignes = objSingleton.ExecuteNonQuery(objSelectCommand);
+            objSingleton.Close();
+            return nbLignes;
+        }
     }
 }

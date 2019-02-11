@@ -1,4 +1,5 @@
 ﻿using BOJobChannel;
+using DALJobChannel;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using WcfServiceJobChannel;
 
 namespace BLLJobChannel
@@ -14,9 +16,10 @@ namespace BLLJobChannel
     public class Controleur
     {
         private static string URL_SERVICE = "http://user18.2isa.org/ServiceJobChannel.svc";
+        //private static string URL_SERVICE = "http://localhost:55536/ServiceJobChannel.svc";
 
         private RestClient Client = new RestClient(URL_SERVICE);
-
+        DALException test = new DALException();
         public Controleur()
         {
 
@@ -41,6 +44,10 @@ namespace BLLJobChannel
             if (response.ResponseStatus == ResponseStatus.Completed)
             {
                 listePoste = response.Data;
+            }
+            else
+            {
+                MessageBox.Show(test.Message);
             }
             return listePoste;
         }
@@ -187,6 +194,68 @@ namespace BLLJobChannel
             }
             return listeOffre;
 
+        }
+
+        public List<Offre> Top10()
+        {
+            List<Offre> listeOffre = null;
+            var request = new RestRequest("10_Offres", Method.GET);
+            var response = Client.Execute<List<Offre>>(request);
+            if (response.ResponseStatus == ResponseStatus.Completed)
+            {
+                listeOffre = response.Data;
+            }
+            return listeOffre;
+
+        }
+
+        public int AddContrat(TypeContrat contrat)
+        {
+            int resultat = 0;
+            var request = new RestRequest("AjouterContrat", Method.POST);
+            request.RequestFormat = DataFormat.Json;
+            var settings = new JsonSerializerSettings() { DateFormatHandling = DateFormatHandling.MicrosoftDateFormat };
+            string json = JsonConvert.SerializeObject(contrat, settings);
+            request.AddParameter("application/json", json, ParameterType.RequestBody);
+            request.AddBody(contrat);
+            var response = Client.Execute<int>(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                resultat = response.Data;
+            }
+            return resultat;
+        }
+        public int AddPoste(TypePoste poste)
+        {
+            int resultat = 0;
+            var request = new RestRequest("AjouterPoste", Method.POST);
+            request.RequestFormat = DataFormat.Json;
+            var settings = new JsonSerializerSettings() { DateFormatHandling = DateFormatHandling.MicrosoftDateFormat };
+            string json = JsonConvert.SerializeObject(poste, settings);
+            request.AddParameter("application/json", json, ParameterType.RequestBody);
+            request.AddBody(poste);
+            var response = Client.Execute<int>(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                resultat = response.Data;
+            }
+            return resultat;
+        }
+        public int AddEntreprise(Entreprise entreprise)
+        {
+            int resultat = 0;
+            var request = new RestRequest("AjouterEntreprise", Method.POST);
+            request.RequestFormat = DataFormat.Json;
+            var settings = new JsonSerializerSettings() { DateFormatHandling = DateFormatHandling.MicrosoftDateFormat };
+            string json = JsonConvert.SerializeObject(entreprise, settings);
+            request.AddParameter("application/json", json, ParameterType.RequestBody);
+            request.AddBody(entreprise);
+            var response = Client.Execute<int>(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                resultat = response.Data;
+            }
+            return resultat;
         }
     }
 }

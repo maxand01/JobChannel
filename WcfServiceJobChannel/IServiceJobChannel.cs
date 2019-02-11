@@ -52,6 +52,10 @@ namespace WcfServiceJobChannel
         [OperationContract]
         [WebGet(UriTemplate = "GetOffresByRegion/{idRegion}?format=json", ResponseFormat = WebMessageFormat.Json)]
         List<Offre> GetOffresByRegion(string idRegion);
+        
+        [OperationContract]
+        [WebGet(UriTemplate = "10_Offres", ResponseFormat = WebMessageFormat.Json)]
+        List<Offre> Top10();
 
         [OperationContract]
         [WebInvoke(UriTemplate = "Entreprise", Method = "POST", ResponseFormat = WebMessageFormat.Json)]
@@ -64,6 +68,18 @@ namespace WcfServiceJobChannel
         [OperationContract]
         [WebInvoke(UriTemplate = "AjouterOffre", Method = "POST", ResponseFormat = WebMessageFormat.Json)]
         int AddOffre(Offre offre);
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "AjouterContrat", Method = "POST", ResponseFormat = WebMessageFormat.Json)]
+        int AddContrat(TypeContrat typeContrat);
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "AjouterPoste", Method = "POST", ResponseFormat = WebMessageFormat.Json)]
+        int AddPoste(TypePoste typePoste);
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "AjouterEntreprise", Method = "POST", ResponseFormat = WebMessageFormat.Json)]
+        int AddEntreprise(Entreprise entreprise);
 
         [OperationContract]
         [WebInvoke(UriTemplate = "SupprimerOffre", Method = "POST", ResponseFormat = WebMessageFormat.Json)]
